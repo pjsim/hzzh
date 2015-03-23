@@ -11,7 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150323053053) do
+ActiveRecord::Schema.define(version: 20150323062352) do
+
+  create_table "haggles", force: true do |t|
+    t.integer  "seller_id",  null: false
+    t.integer  "buyer_id",   null: false
+    t.integer  "status",     null: false
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "haggles", ["product_id"], name: "index_haggles_on_product_id"
+
+  create_table "offers", force: true do |t|
+    t.integer  "intention",  null: false
+    t.decimal  "price"
+    t.integer  "haggle_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "offers", ["haggle_id"], name: "index_offers_on_haggle_id"
+  add_index "offers", ["user_id"], name: "index_offers_on_user_id"
+
+  create_table "products", force: true do |t|
+    t.string   "title",       null: false
+    t.text     "description"
+    t.decimal  "price"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "products", ["user_id"], name: "index_products_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
