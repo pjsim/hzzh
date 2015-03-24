@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :products
+  has_many :products, dependent: :destroy
+  has_many :seller_haggles, class_name: 'Haggle', foreign_key: 'seller_id'
+  has_many :buyer_haggles, class_name: 'Haggle', foreign_key: 'buyer_id'
   has_many :offers
-  # has_many :haggles through either seller or buyer id
 end

@@ -1,8 +1,8 @@
 class CreateHaggles < ActiveRecord::Migration
   def change
     create_table :haggles do |t|
-      t.integer :seller_id, null: false
-      t.integer :buyer_id, null: false
+      t.integer :seller_id, null: false, index: true
+      t.integer :buyer_id, null: false, index: true
       t.integer :status, null: false
       t.references :product, index: true
 
