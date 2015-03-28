@@ -1,9 +1,8 @@
 FactoryGirl.define do
   factory :haggle do
-    seller_id 1
-buyer_id 1
-status 1
-product nil
+    seller { FactoryGirl.create :user }
+    buyer { FactoryGirl.create :user }
+    status 1
+    product { FactoryGirl.create :product }
   end
-
 end

@@ -1,9 +1,8 @@
 FactoryGirl.define do
   factory :offer do
     intention 1
-price "9.99"
-haggle nil
-user nil
+    price { Faker::Commerce.price }
+    haggle { FactoryGirl.create :haggle }
+    user { FactoryGirl.create :user }
   end
-
 end

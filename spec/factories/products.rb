@@ -1,9 +1,8 @@
 FactoryGirl.define do
   factory :product do
-    title "MyString"
-description "MyText"
-price "9.99"
-user nil
+    title { Faker::Commerce.product_name }
+    description { Faker::Lorem.sentence }
+    price { Faker::Commerce.price }
+    user { FactoryGirl.create :user }
   end
-
 end

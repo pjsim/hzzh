@@ -49,6 +49,7 @@ group :development, :test do
   gem 'spring-commands-rspec'
   gem 'faker'
   gem 'pry-bloodline'
+  gem 'shoulda-matchers'
 end
 
 gem 'devise'
