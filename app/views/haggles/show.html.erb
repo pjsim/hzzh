@@ -1,0 +1,24 @@
+<%= render 'shared/top_menu' %>
+<table style="width: 1350px; margin-left: 10px;">
+  <h1>Haggle</h1>
+  <tr>
+    <td><%= "#{@product.title} - #{@product.description}" %></td>
+  </tr>
+  <tr>
+    <td>Haggle price history</td>
+  </tr>
+  <tr>
+    <% @haggles.each do |haggle| %>
+      <tr>
+        <td><%= haggle.inspect %></td>
+      </tr>
+      <% haggle.offers.each do |offer| %>
+        <tr><td><%= offer.inspect %></td></tr>
+      <% end %>
+    <% end %>
+  </tr>
+  <tr><td><h2>Make Offer</h2></td></tr>
+  <tr>
+    <td><%= @product.price %></td><td>My new price slider</td><td><%= link_to 'Make offer', haggles_show_path %></td>
+  </tr>
+</table>

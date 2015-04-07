@@ -1,0 +1,18 @@
+<%= render 'shared/top_menu' %>
+<table style="width: 1350px; margin-left: 10px;">
+  <tr><td><h2>Haggles I'm involved with</h2></td></tr>
+  <tr>
+    <th>Product</th>
+    <th>Buyer</th>
+    <th>Seller</th>
+    <th>Latest Offer</th>
+  </tr>
+  <tr>
+    <% @haggles.each do |haggle| %>
+      <td><%= haggle.product %></td>
+      <td><%= haggle.buyer.email %></td>
+      <td><%= haggle.seller.email %></td>
+      <td><%= haggle.offers.last.price %></td>
+    <% end %>
+  </tr>
+</table>

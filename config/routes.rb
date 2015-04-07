@@ -7,6 +7,24 @@ Rails.application.routes.draw do
     resources :offers
   end
 
+  # root 'ember#bootstrap'
+  # get '/*path' => 'ember#bootstrap'
+  #
+
+  resources :products
+
+  get 'haggles/show' => 'haggles#show'
+  get 'haggles/new' => 'haggles#new'
+  get 'haggles' => 'haggles#index'
+
+  root 'public#index'
+
+
+  get 'logistics' => 'logistics#index'
+
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
